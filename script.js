@@ -39,10 +39,19 @@ function doubleMoney() {
   updateDOM();
 }
 
+// Sort users in descending order based on amount of wealth
 function sortByRichest() {
   data.sort(function (a, b) {
     return b.money - a.money;
   });
+  updateDOM();
+}
+
+function showMillionaires() {
+  data = data.filter(function (user) {
+    return user.money > 1000000;
+  });
+
   updateDOM();
 }
 
@@ -83,3 +92,5 @@ addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
 
 sortBtn.addEventListener("click", sortByRichest);
+
+showMillionairesBtn.addEventListener("click", showMillionaires);
